@@ -72,7 +72,7 @@ class MasterViewController: UICollectionViewController {
     
     // MARK: - Navigation
 
-    func navigateToDetails(viewModel: BookViewModel) {
+    private func navigateToDetails(viewModel: BookViewModel) {
         self.collectionView.backgroundView = nil
         let detailsNav = storyboard!.instantiateViewController(withIdentifier: NAV_DETAIL_IDENTIFIER) as! UINavigationController
         let detailsVC = detailsNav.topViewController as! DetailViewController

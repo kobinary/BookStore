@@ -38,7 +38,7 @@ class BookStoreTests: XCTestCase {
         XCTAssert(mockNetwork!.isFetchDataCalled)
     }
     
-    func testCreateCellViewModel() {
+    func testCreateMasterViewModel() {
         //Given
         let books = StubGenerator().stubListData()
         mockNetwork.completeListBook = books
@@ -51,7 +51,7 @@ class BookStoreTests: XCTestCase {
         XCTAssertEqual(sut.books.count, books.count)
     }
     
-    func testGetCellViewModel() {
+    func testGetMasterViewModel() {
         //Given a sut with fetched
         goToFetchDataFinished()
         
@@ -64,6 +64,43 @@ class BookStoreTests: XCTestCase {
         //Assert
         XCTAssertEqual(vm.title, testBook.title)
     }
+    
+    func testCreationalBookViewModel() {
+        
+        let book = Book.init(id: 100, title: "", author: "", price: 1239, currency: "EUR", isbn: "", bookDescription: "")
+        let bookViewModel = BookViewModel.init(book: book)
+        
+        XCTAssertNotNil(bookViewModel)
+    }
+    
+    func testCreationalBookViewModelValues() {
+        
+        let book = Book.init(id: 100, title:"Code Complete: A Practical Handbook of Software Construction", author: "Mike Riley", price: 1239, currency: "EUR", isbn: "", bookDescription: "")
+        let bookViewModel = BookViewModel.init(book: book)
+        
+        XCTAssertEqual(bookViewModel.id, 100)
+        XCTAssertEqual(bookViewModel.title, "Code Complete: A Practical Handbook of Software Construction")
+        XCTAssertEqual(bookViewModel.author, "Mike Riley")
+    }
+    
+    func testCreationalBookViewModelEURPrice() {
+        
+        let book = Book.init(id: 100, title:"Code Complete: A Practical Handbook of Software Construction", author: "Mike Riley", price: 1239, currency: "EUR", isbn: "", bookDescription: "")
+        let bookViewModel = BookViewModel.init(book: book)
+        
+        XCTAssertEqual(bookViewModel.id, 100)
+        XCTAssertEqual(bookViewModel.priceAndCurrency, "€12.39")
+    }
+    
+    func testCreationalBookViewModelGBPPrice() {
+        
+        let book = Book.init(id: 100, title:"Code Complete: A Practical Handbook of Software Construction", author: "Mike Riley", price: 1239, currency: "GBP", isbn: "", bookDescription: "")
+        let bookViewModel = BookViewModel.init(book: book)
+        
+        XCTAssertEqual(bookViewModel.id, 100)
+        XCTAssertEqual(bookViewModel.priceAndCurrency, "£12.39")
+    }
+
 }
 
 class MockNetworkManager: NetworkManagerProtocol {
@@ -119,6 +156,21 @@ class StubGenerator {
             } catch { }
         }
         return listBooks
+    }
+    
+    func stubData() -> Book {
+        let json: [String:AnyObject]!
+        var book: Book!
+        
+        if let path = Bundle.main.path(forResource: "Book", ofType: "json") {
+            do {
+                let fileUrl = URL(fileURLWithPath: path)
+                let data = try Data(contentsOf: fileUrl, options: .mappedIfSafe)
+                json = try? JSONSerialization.jsonObject(with: data) as? [String : AnyObject]
+                book = Parser.parseBook(dictionary: json)
+            } catch { }
+        }
+        return book
     }
 }
 

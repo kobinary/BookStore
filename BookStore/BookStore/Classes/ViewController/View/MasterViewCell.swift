@@ -27,5 +27,4 @@ class MasterViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
 }

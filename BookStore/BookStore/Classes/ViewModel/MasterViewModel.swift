@@ -17,7 +17,7 @@ class MasterViewModel {
     
     // MARK: - Properties
     
-    let manager: NetworkManagerProtocol
+    private let manager: NetworkManagerProtocol
     weak var delegate: MasterViewModelDelegate?
     var books = [BookViewModel]()
     

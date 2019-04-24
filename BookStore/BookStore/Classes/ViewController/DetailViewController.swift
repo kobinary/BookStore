@@ -35,19 +35,19 @@ class DetailViewController: UIViewController {
         fetchData()
     }
     
-    func setupView() {
+    private func setupView() {
         setupFields()
         setupTextView()
         self.scrollView.updateContentView()
     }
     
-    func setupTextView() {
+    private func setupTextView() {
         descriptionTextView.translatesAutoresizingMaskIntoConstraints = true
         descriptionTextView.sizeToFit()
         descriptionTextView.isScrollEnabled = false
     }
     
-    func setupFields() {
+    private func setupFields() {
         bookTitle.text = viewModel.book.title
         author.text = viewModel.book.author
         price.setTitle(viewModel.book.priceAndCurrency, for: .normal)
@@ -64,7 +64,9 @@ class DetailViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func buyBook(_ sender: Any) {
-        
+        let alert = UIAlertController(title: ALERT_TITLE, message: ALERT_MESSAGE, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: ALERT_OK_BUTTON, style: .default, handler: { action in }))
+       self.present(alert, animated: true, completion: nil)
     }
 
 }
