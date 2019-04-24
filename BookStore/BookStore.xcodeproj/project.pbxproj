@@ -20,6 +20,8 @@
 		4C951F1B227066F900BBA714 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C951F1A227066F900BBA714 /* Result.swift */; };
 		4C951F1D2270670900BBA714 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C951F1C2270670900BBA714 /* Parser.swift */; };
 		4C951F1F2270676500BBA714 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C951F1E2270676500BBA714 /* Constants.swift */; };
+		4C951F2322706F8600BBA714 /* LogoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C951F2222706F8600BBA714 /* LogoHelper.swift */; };
+		4C951F252270706100BBA714 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C951F242270706100BBA714 /* BookViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		4C951F1A227066F900BBA714 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		4C951F1C2270670900BBA714 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		4C951F1E2270676500BBA714 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4C951F2222706F8600BBA714 /* LogoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoHelper.swift; sourceTree = "<group>"; };
+		4C951F242270706100BBA714 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				4C951F142270668900BBA714 /* MasterViewModel.swift */,
+				4C951F242270706100BBA714 /* BookViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				4C951F1E2270676500BBA714 /* Constants.swift */,
+				4C951F2222706F8600BBA714 /* LogoHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -295,7 +301,9 @@
 				4C951F19227066D700BBA714 /* Book.swift in Sources */,
 				4C951F17227066C600BBA714 /* NetworkManager.swift in Sources */,
 				4C951F1D2270670900BBA714 /* Parser.swift in Sources */,
+				4C951F252270706100BBA714 /* BookViewModel.swift in Sources */,
 				4C951F1B227066F900BBA714 /* Result.swift in Sources */,
+				4C951F2322706F8600BBA714 /* LogoHelper.swift in Sources */,
 				4C951EE82270634C00BBA714 /* AppDelegate.swift in Sources */,
 				4C951F112270662000BBA714 /* MasterViewController.swift in Sources */,
 				4C951F1F2270676500BBA714 /* Constants.swift in Sources */,
