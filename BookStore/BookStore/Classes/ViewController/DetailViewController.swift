@@ -10,21 +10,35 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    // MARK: - IBOutlets
+    
+    @IBOutlet weak var bookTitle: UILabel!
+    @IBOutlet weak var author: UILabel!
+    @IBOutlet weak var price: UIButton!
+    @IBOutlet weak var descriptionTextView: UITextView!
+    
+    // MARK: - Properties
+    
+    var viewModel : BookViewModel!
+
+    // MARK: - Setups
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupView()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupView() {
+        bookTitle.text = viewModel.title
+        author.text = viewModel.author
+        price.setTitle(viewModel.priceAndCurrency, for: .normal)
+        descriptionTextView.text = viewModel.bookDescription
     }
-    */
+    
+    // MARK: - IBActions
+    
+    @IBAction func buyBook(_ sender: Any) {
+        
+    }
 
 }

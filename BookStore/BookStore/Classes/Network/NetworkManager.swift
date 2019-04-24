@@ -17,30 +17,37 @@ protocol NetworkManagerProtocol {
     func fetchBook(id: Int, completion: @escaping (Result<Book>) -> ())
 }
 
+enum RequestType {
+    case Books
+    case Book
+}
 
 class NetworkManager: NetworkManagerProtocol {
-    
-    // MARK: - Properties
-
-    let session = URLSession.shared
 
     // MARK: - URL Data
     
-    private func booksURLFromParameters() -> URL {
+    private func booksURLFromParameters(type: RequestType) -> String {
         
         // Build URL
         var components = URLComponents()
         components.scheme = Constants.BookURLParams.APIScheme
         components.host = Constants.BookURLParams.APIHost
-        components.path = Constants.BookURLParams.APIPath
+     
+        switch type {
+        case .Books:
+            components.path = Constants.BookURLParams.APIBooksPath
+        default:
+            components.path = Constants.BookURLParams.APIBookPath
+        }
         
-        return components.url!
+        return components.url!.absoluteString
     }
     
     // MARK: - Fetch List Books
     
     func fetchListBooks(completion: @escaping (Result<Array<Book>>) -> ()) {
-        let request = URLRequest(url: booksURLFromParameters())
+        let session = URLSession.shared
+        let request = URLRequest(url: URL.init(string: booksURLFromParameters(type: .Books))!)
         
         let task = session.dataTask(with: request) {
             (data, response, error) in
@@ -85,8 +92,9 @@ class NetworkManager: NetworkManagerProtocol {
     // MARK: - Fetch Book
 
     func fetchBook(id: Int, completion: @escaping (Result<Book>) -> ()) {
-        let request = URLRequest(url: booksURLFromParameters())
-        
+        let session = URLSession.shared
+        let request = URLRequest(url: URL.init(string: booksURLFromParameters(type: .Book) + "\(id)")!)
+
         let task = session.dataTask(with: request) {
             (data, response, error) in
             if (error == nil) {

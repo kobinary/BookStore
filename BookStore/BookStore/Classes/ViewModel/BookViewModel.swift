@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BookViewModel: NSObject {
+class BookViewModel {
 
     // MARK: - Properties
     
@@ -31,8 +31,15 @@ class BookViewModel: NSObject {
         self.price = book.price
         self.currency = book.currency
         self.isbn = book.isbn
+        self.priceAndCurrency = getPriceWithCurrency(price: price, currency: currency)
         self.bookDescription = book.bookDescription
         
+    }
+    
+    // MARK: - Price Formatter
+    
+    private func getPriceWithCurrency(price: Int, currency: String) -> String {
+        return currency.currencySymbol + price.delimiter
     }
     
 }

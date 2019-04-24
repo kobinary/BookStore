@@ -16,13 +16,13 @@ protocol MasterViewModelDelegate: class {
     func navigateToDetails(viewModel: BookViewModel)
 }
 
-class MasterViewModel: NSObject {
+class MasterViewModel {
     
     // MARK: - Properties
     
     let manager: NetworkManagerProtocol
     weak var delegate: MasterViewModelDelegate?
-    var books : [BookViewModel]!
+    var books = [BookViewModel]()
     
     // MARK: - Init
     
@@ -42,6 +42,7 @@ class MasterViewModel: NSObject {
                 break
             case .results(let data):
                 self.books = self.parseListBooksIntoViewModel(array: data)
+                self.delegate?.reloadBooksCollection()
             }
         }
     }

@@ -22,6 +22,13 @@
 		4C951F1F2270676500BBA714 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C951F1E2270676500BBA714 /* Constants.swift */; };
 		4C951F2322706F8600BBA714 /* LogoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C951F2222706F8600BBA714 /* LogoHelper.swift */; };
 		4C951F252270706100BBA714 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C951F242270706100BBA714 /* BookViewModel.swift */; };
+		4C951F2722707FD000BBA714 /* MasterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C951F2622707FD000BBA714 /* MasterViewCell.swift */; };
+		4C951F2E227087FE00BBA714 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C951F2D227087FE00BBA714 /* LoadingView.xib */; };
+		4C951F30227089A200BBA714 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C951F2F227089A200BBA714 /* Currency.swift */; };
+		4C951F32227089C100BBA714 /* Int+Decimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C951F31227089C100BBA714 /* Int+Decimal.swift */; };
+		4C951F34227089D900BBA714 /* String+Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C951F33227089D900BBA714 /* String+Currency.swift */; };
+		4C951F3722708B3200BBA714 /* ListBooks.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C951F3522708B3200BBA714 /* ListBooks.json */; };
+		4C951F3822708B3200BBA714 /* Book.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C951F3622708B3200BBA714 /* Book.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +61,13 @@
 		4C951F1E2270676500BBA714 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4C951F2222706F8600BBA714 /* LogoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoHelper.swift; sourceTree = "<group>"; };
 		4C951F242270706100BBA714 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
+		4C951F2622707FD000BBA714 /* MasterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewCell.swift; sourceTree = "<group>"; };
+		4C951F2D227087FE00BBA714 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		4C951F2F227089A200BBA714 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		4C951F31227089C100BBA714 /* Int+Decimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Decimal.swift"; sourceTree = "<group>"; };
+		4C951F33227089D900BBA714 /* String+Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Currency.swift"; sourceTree = "<group>"; };
+		4C951F3522708B3200BBA714 /* ListBooks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ListBooks.json; sourceTree = "<group>"; };
+		4C951F3622708B3200BBA714 /* Book.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Book.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				4C951EEE2270634F00BBA714 /* Assets.xcassets */,
+				4C951F3622708B3200BBA714 /* Book.json */,
+				4C951F3522708B3200BBA714 /* ListBooks.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -148,6 +164,7 @@
 			children = (
 				4C951F102270662000BBA714 /* MasterViewController.swift */,
 				4C951F122270663600BBA714 /* DetailViewController.swift */,
+				4C951F28227080AB00BBA714 /* View */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -184,6 +201,7 @@
 			children = (
 				4C951F1E2270676500BBA714 /* Constants.swift */,
 				4C951F2222706F8600BBA714 /* LogoHelper.swift */,
+				4C951F2F227089A200BBA714 /* Currency.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -191,8 +209,19 @@
 		4C951F0F2270640500BBA714 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4C951F31227089C100BBA714 /* Int+Decimal.swift */,
+				4C951F33227089D900BBA714 /* String+Currency.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4C951F28227080AB00BBA714 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4C951F2622707FD000BBA714 /* MasterViewCell.swift */,
+				4C951F2D227087FE00BBA714 /* LoadingView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,7 +305,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C951F3822708B3200BBA714 /* Book.json in Resources */,
 				4C951EF22270634F00BBA714 /* LaunchScreen.storyboard in Resources */,
+				4C951F2E227087FE00BBA714 /* LoadingView.xib in Resources */,
+				4C951F3722708B3200BBA714 /* ListBooks.json in Resources */,
 				4C951EEF2270634F00BBA714 /* Assets.xcassets in Resources */,
 				4C951EED2270634C00BBA714 /* Main.storyboard in Resources */,
 			);
@@ -298,11 +330,15 @@
 			files = (
 				4C951F152270668900BBA714 /* MasterViewModel.swift in Sources */,
 				4C951F132270663600BBA714 /* DetailViewController.swift in Sources */,
+				4C951F2722707FD000BBA714 /* MasterViewCell.swift in Sources */,
+				4C951F34227089D900BBA714 /* String+Currency.swift in Sources */,
+				4C951F32227089C100BBA714 /* Int+Decimal.swift in Sources */,
 				4C951F19227066D700BBA714 /* Book.swift in Sources */,
 				4C951F17227066C600BBA714 /* NetworkManager.swift in Sources */,
 				4C951F1D2270670900BBA714 /* Parser.swift in Sources */,
 				4C951F252270706100BBA714 /* BookViewModel.swift in Sources */,
 				4C951F1B227066F900BBA714 /* Result.swift in Sources */,
+				4C951F30227089A200BBA714 /* Currency.swift in Sources */,
 				4C951F2322706F8600BBA714 /* LogoHelper.swift in Sources */,
 				4C951EE82270634C00BBA714 /* AppDelegate.swift in Sources */,
 				4C951F112270662000BBA714 /* MasterViewController.swift in Sources */,

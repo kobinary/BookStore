@@ -15,7 +15,8 @@ struct Constants {
     struct BookURLParams {
         static let APIScheme = "http"
         static let APIHost = "tpbookserver.herokuapp.com"
-        static let APIPath = "/books"
+        static let APIBooksPath = "/books"
+        static let APIBookPath = "/book/"
     }
     
     // MARK: - Model Keys Constants
@@ -30,3 +31,9 @@ struct Constants {
         static let bookDescription = "description"
     }
 }
+
+// MARK: - String Constants
+
+let LOADING_VIEW_NAME = "LoadingView"
+let NAV_DETAIL_IDENTIFIER = "DetailNavigation"
+let MASTER_VIEW_CELL_IDENTIFIER = "BookViewCell"

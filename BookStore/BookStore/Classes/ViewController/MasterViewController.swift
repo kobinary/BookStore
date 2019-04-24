@@ -8,20 +8,20 @@
 
 import UIKit
 
-private let cellReuseIdentifier = "BookViewCell"
-private let NavigationIdentifier = "DetailNavigation"
-private let numberOfColums = 2
+private let numberOfItemsInSection = 2
 
 class MasterViewController: UICollectionViewController {
     
     // MARK: - Properties
     
     private let viewModel = MasterViewModel()
-    
+    private var loadingView : UIView!
+
     // MARK: - Setups
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
         setupView()
     }
     
@@ -32,10 +32,16 @@ class MasterViewController: UICollectionViewController {
     
     private func setupView() {
         setupNavigationItems()
+        setupLoading()
     }
     
     private func setupNavigationItems() {
         navigationItem.titleView = LogoHelper().setupLogo()
+    }
+    
+    private func setupLoading() {
+        loadingView = (Bundle.main.loadNibNamed(LOADING_VIEW_NAME, owner: nil, options: nil)![0] as! UIView)
+        collectionView.backgroundView = loadingView
     }
     
     // MARK: - Fetch Data
@@ -51,11 +57,13 @@ class MasterViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return numberOfColums
+        return numberOfItemsInSection
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MASTER_VIEW_CELL_IDENTIFIER, for: indexPath) as! MasterViewCell
+        let cellViewModel = viewModel.books[indexPath.row]
+        cell.update(viewModel: cellViewModel)
         return cell
     }
     
@@ -64,4 +72,28 @@ class MasterViewController: UICollectionViewController {
         viewModel.fetchBook(id: bookID!)
     }
 }
+
+// MARK: - MasterViewModel delegate
+
+extension MasterViewController: MasterViewModelDelegate {
+    
+    func reloadBooksCollection() {
+        DispatchQueue.main.sync {
+            self.collectionView.backgroundView = nil
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func navigateToDetails(viewModel: BookViewModel) {
+        DispatchQueue.main.sync {
+            self.collectionView.backgroundView = nil
+
+            let detailsNav = storyboard!.instantiateViewController(withIdentifier: NAV_DETAIL_IDENTIFIER) as! UINavigationController
+            let detailsVC = detailsNav.topViewController as! DetailViewController
+            detailsVC.viewModel = viewModel
+            self.navigationController!.pushViewController(detailsVC, animated: true)
+        }
+    }
+}
+
 
