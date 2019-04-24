@@ -29,7 +29,6 @@
 		4C951F34227089D900BBA714 /* String+Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C951F33227089D900BBA714 /* String+Currency.swift */; };
 		4C951F3722708B3200BBA714 /* ListBooks.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C951F3522708B3200BBA714 /* ListBooks.json */; };
 		4C951F3822708B3200BBA714 /* Book.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C951F3622708B3200BBA714 /* Book.json */; };
-		4C951F3A2270929C00BBA714 /* NetworkManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C951F392270929C00BBA714 /* NetworkManagerTest.swift */; };
 		4C951F3C2270979A00BBA714 /* UIColor+color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C951F3B2270979A00BBA714 /* UIColor+color.swift */; };
 		4C951F3E2270A49C00BBA714 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C951F3D2270A49C00BBA714 /* DetailViewModel.swift */; };
 		4C951F402270AAAF00BBA714 /* UIViewController+Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C951F3F2270AAAF00BBA714 /* UIViewController+Spinner.swift */; };
@@ -73,7 +72,6 @@
 		4C951F33227089D900BBA714 /* String+Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Currency.swift"; sourceTree = "<group>"; };
 		4C951F3522708B3200BBA714 /* ListBooks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ListBooks.json; sourceTree = "<group>"; };
 		4C951F3622708B3200BBA714 /* Book.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Book.json; sourceTree = "<group>"; };
-		4C951F392270929C00BBA714 /* NetworkManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTest.swift; sourceTree = "<group>"; };
 		4C951F3B2270979A00BBA714 /* UIColor+color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+color.swift"; sourceTree = "<group>"; };
 		4C951F3D2270A49C00BBA714 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		4C951F3F2270AAAF00BBA714 /* UIViewController+Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Spinner.swift"; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				4C951EFC2270634F00BBA714 /* BookStoreTests.swift */,
-				4C951F392270929C00BBA714 /* NetworkManagerTest.swift */,
 				4C951EFE2270634F00BBA714 /* Info.plist */,
 			);
 			path = BookStoreTests;
@@ -369,7 +366,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C951F3A2270929C00BBA714 /* NetworkManagerTest.swift in Sources */,
 				4C951EFD2270634F00BBA714 /* BookStoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

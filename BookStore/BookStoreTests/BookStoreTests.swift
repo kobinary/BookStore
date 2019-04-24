@@ -39,7 +39,7 @@ class BookStoreTests: XCTestCase {
     }
     
     func testCreateCellViewModel() {
-        //Given a sut with fetched data
+        //Given
         let books = StubGenerator().stubListData()
         mockNetwork.completeListBook = books
         
@@ -47,8 +47,22 @@ class BookStoreTests: XCTestCase {
         sut.fetchListBooks()
         mockNetwork.fetchSuccess()
         
-        // Number of sections view model is equal to the number of categories
+        // Assert
         XCTAssertEqual(sut.books.count, books.count)
+    }
+    
+    func testGetCellViewModel() {
+        //Given a sut with fetched
+        goToFetchDataFinished()
+        
+        let indexPath = IndexPath(row: 1, section: 0)
+        let testBook = mockNetwork.completeListBook[indexPath.row]
+        
+        // When
+        let vm = sut.books[indexPath.row]
+        
+        //Assert
+        XCTAssertEqual(vm.title, testBook.title)
     }
 }
 
@@ -77,6 +91,15 @@ class MockNetworkManager: NetworkManagerProtocol {
     
     func fetchFail() {
         completeListBookClosure(Result.error(.emptyData))
+    }
+}
+
+extension BookStoreTests {
+    
+    private func goToFetchDataFinished() {
+        mockNetwork.completeListBook = StubGenerator().stubListData()
+        sut.fetchListBooks()
+        mockNetwork.fetchSuccess()
     }
 }
 
