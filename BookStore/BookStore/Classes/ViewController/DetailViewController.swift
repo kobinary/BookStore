@@ -16,6 +16,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var author: UILabel!
     @IBOutlet weak var price: UIButton!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     // MARK: - Properties
     
@@ -37,12 +38,14 @@ class DetailViewController: UIViewController {
     func setupView() {
         setupFields()
         setupTextView()
+        self.scrollView.updateContentView()
     }
     
     func setupTextView() {
         descriptionTextView.translatesAutoresizingMaskIntoConstraints = true
         descriptionTextView.sizeToFit()
-        descriptionTextView.isScrollEnabled = false    }
+        descriptionTextView.isScrollEnabled = false
+    }
     
     func setupFields() {
         bookTitle.text = viewModel.book.title

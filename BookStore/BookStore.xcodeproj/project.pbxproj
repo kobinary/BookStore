@@ -33,6 +33,7 @@
 		4C951F3C2270979A00BBA714 /* UIColor+color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C951F3B2270979A00BBA714 /* UIColor+color.swift */; };
 		4C951F3E2270A49C00BBA714 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C951F3D2270A49C00BBA714 /* DetailViewModel.swift */; };
 		4C951F402270AAAF00BBA714 /* UIViewController+Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C951F3F2270AAAF00BBA714 /* UIViewController+Spinner.swift */; };
+		4C951F422270B03600BBA714 /* UIScrollView+view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C951F412270B03600BBA714 /* UIScrollView+view.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		4C951F3B2270979A00BBA714 /* UIColor+color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+color.swift"; sourceTree = "<group>"; };
 		4C951F3D2270A49C00BBA714 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		4C951F3F2270AAAF00BBA714 /* UIViewController+Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Spinner.swift"; sourceTree = "<group>"; };
+		4C951F412270B03600BBA714 /* UIScrollView+view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+view.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 				4C951F33227089D900BBA714 /* String+Currency.swift */,
 				4C951F3B2270979A00BBA714 /* UIColor+color.swift */,
 				4C951F3F2270AAAF00BBA714 /* UIViewController+Spinner.swift */,
+				4C951F412270B03600BBA714 /* UIScrollView+view.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				4C951F132270663600BBA714 /* DetailViewController.swift in Sources */,
 				4C951F2722707FD000BBA714 /* MasterViewCell.swift in Sources */,
 				4C951F34227089D900BBA714 /* String+Currency.swift in Sources */,
+				4C951F422270B03600BBA714 /* UIScrollView+view.swift in Sources */,
 				4C951F32227089C100BBA714 /* Int+Decimal.swift in Sources */,
 				4C951F3C2270979A00BBA714 /* UIColor+color.swift in Sources */,
 				4C951F19227066D700BBA714 /* Book.swift in Sources */,
