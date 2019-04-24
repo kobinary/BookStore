@@ -29,6 +29,16 @@ class DetailViewController: UIViewController {
     }
     
     func setupView() {
+        setupFields()
+        setupTextView()
+    }
+    
+    func setupTextView() {
+        descriptionTextView.translatesAutoresizingMaskIntoConstraints = true
+        descriptionTextView.sizeToFit()
+        descriptionTextView.isScrollEnabled = false    }
+    
+    func setupFields() {
         bookTitle.text = viewModel.title
         author.text = viewModel.author
         price.setTitle(viewModel.priceAndCurrency, for: .normal)

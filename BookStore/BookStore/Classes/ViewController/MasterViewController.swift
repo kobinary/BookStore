@@ -9,6 +9,7 @@
 import UIKit
 
 private let numberOfItemsInSection = 2
+private let itemsPerRow: CGFloat = 2
 
 class MasterViewController: UICollectionViewController {
     
@@ -16,6 +17,7 @@ class MasterViewController: UICollectionViewController {
     
     private let viewModel = MasterViewModel()
     private var loadingView : UIView!
+    private let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
 
     // MARK: - Setups
     
@@ -52,17 +54,14 @@ class MasterViewController: UICollectionViewController {
     
     // MARK: - UICollectionView DataSource & Delegate
     
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return viewModel.books.count
-    }
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return numberOfItemsInSection
+        return viewModel.books.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MASTER_VIEW_CELL_IDENTIFIER, for: indexPath) as! MasterViewCell
-        let cellViewModel = viewModel.books[indexPath.row]
+        print(indexPath.row, indexPath.section)
+        let cellViewModel = viewModel.books[indexPath.item]
         cell.update(viewModel: cellViewModel)
         return cell
     }
@@ -96,4 +95,30 @@ extension MasterViewController: MasterViewModelDelegate {
     }
 }
 
+// MARK: - Collection View Flow Layout Delegate
 
+extension MasterViewController : UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
+        
+        return CGSize(width: widthPerItem, height: widthPerItem)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionInsets.left
+    }
+}
