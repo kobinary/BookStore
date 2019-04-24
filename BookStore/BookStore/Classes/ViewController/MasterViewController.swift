@@ -67,8 +67,17 @@ class MasterViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let bookID = viewModel.books[indexPath.row].id
-        viewModel.fetchBook(id: bookID!)
+        navigateToDetails(viewModel: viewModel.books[indexPath.row])
+    }
+    
+    // MARK: - Navigation
+
+    func navigateToDetails(viewModel: BookViewModel) {
+        self.collectionView.backgroundView = nil
+        let detailsNav = storyboard!.instantiateViewController(withIdentifier: NAV_DETAIL_IDENTIFIER) as! UINavigationController
+        let detailsVC = detailsNav.topViewController as! DetailViewController
+        detailsVC.bookViewModel = viewModel
+        self.navigationController!.pushViewController(detailsVC, animated: true)
     }
 }
 
@@ -80,17 +89,6 @@ extension MasterViewController: MasterViewModelDelegate {
         DispatchQueue.main.sync {
             self.collectionView.backgroundView = nil
             self.collectionView.reloadData()
-        }
-    }
-    
-    func navigateToDetails(viewModel: BookViewModel) {
-        DispatchQueue.main.sync {
-            self.collectionView.backgroundView = nil
-
-            let detailsNav = storyboard!.instantiateViewController(withIdentifier: NAV_DETAIL_IDENTIFIER) as! UINavigationController
-            let detailsVC = detailsNav.topViewController as! DetailViewController
-            detailsVC.viewModel = viewModel
-            self.navigationController!.pushViewController(detailsVC, animated: true)
         }
     }
 }

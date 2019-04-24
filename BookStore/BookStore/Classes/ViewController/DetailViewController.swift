@@ -19,13 +19,19 @@ class DetailViewController: UIViewController {
     
     // MARK: - Properties
     
-    var viewModel : BookViewModel!
+    private let viewModel = DetailViewModel()
+    var bookViewModel: BookViewModel!
 
     // MARK: - Setups
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
+        viewModel.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchData()
     }
     
     func setupView() {
@@ -39,16 +45,33 @@ class DetailViewController: UIViewController {
         descriptionTextView.isScrollEnabled = false    }
     
     func setupFields() {
-        bookTitle.text = viewModel.title
-        author.text = viewModel.author
-        price.setTitle(viewModel.priceAndCurrency, for: .normal)
-        descriptionTextView.text = viewModel.bookDescription
+        bookTitle.text = viewModel.book.title
+        author.text = viewModel.book.author
+        price.setTitle(viewModel.book.priceAndCurrency, for: .normal)
+        descriptionTextView.text = viewModel.book.bookDescription
     }
     
+    // MARK: - Fetch Data
+    
+    private func fetchData() {
+        self.showSpinner(onView: self.view)
+        viewModel.fetchBook(id: bookViewModel.id)
+    }
+        
     // MARK: - IBActions
     
     @IBAction func buyBook(_ sender: Any) {
         
     }
 
+}
+
+extension DetailViewController: DetailViewModelDelegate {
+    
+    func reloadBookData() {
+        DispatchQueue.main.sync {
+            self.removeSpinner()
+            self.setupView()
+        }
+    }
 }

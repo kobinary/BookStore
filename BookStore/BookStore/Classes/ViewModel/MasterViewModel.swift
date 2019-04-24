@@ -9,11 +9,8 @@
 import UIKit
 import Foundation
 
-protocol MasterViewModelDelegate: class {
-    
+protocol MasterViewModelDelegate: class {    
     func reloadBooksCollection()
-    
-    func navigateToDetails(viewModel: BookViewModel)
 }
 
 class MasterViewModel {
@@ -30,7 +27,7 @@ class MasterViewModel {
         self.manager = manager
     }
     
-    // MARK: - Fetchers
+    // MARK: - Fetcher
     
     func fetchListBooks() {
         manager.fetchListBooks() { [weak self] (results) in
@@ -46,22 +43,6 @@ class MasterViewModel {
             }
         }
     }
-    
-    func fetchBook(id: Int) {
-        manager.fetchBook(id: id) { [weak self] (results) in
-            guard let self = self else { return }
-            
-            switch results {
-            case .error(let error) :
-                print("Error Fetching Data: \(error)")
-                break
-            case .results(let data):
-                let bookVM = BookViewModel.init(book: data)
-                self.delegate?.navigateToDetails(viewModel: bookVM)
-            }
-        }
-    }
-    
     
     // MARK: - Parser Model into ViewModel
     
