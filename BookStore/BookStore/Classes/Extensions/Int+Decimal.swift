@@ -15,6 +15,19 @@ extension Int {
         let float: Float = Float(self) / minorCurrencyUnit
         return "\(float)"
     }
+
+    private static var commaFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.usesGroupingSeparator = true
+        formatter.numberStyle = .decimal
+        formatter.locale = Locale.current
+        return formatter
+    }()
+    
+    internal var commaRepresentation: String {
+        return Int.commaFormatter.string(from: NSNumber(value: self)) ?? ""
+    }
+
     
 }
 

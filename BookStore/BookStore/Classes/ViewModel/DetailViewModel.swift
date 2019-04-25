@@ -10,6 +10,7 @@ import UIKit
 
 protocol DetailViewModelDelegate: class {
     func reloadBookData()
+    func showAlertView()
 }
 
 class DetailViewModel: NSObject {
@@ -28,8 +29,7 @@ class DetailViewModel: NSObject {
             
             switch results {
             case .error(let error) :
-                print("Error Fetching Data: \(error)")
-                break
+                self.delegate?.showAlertView()
             case .results(let data):
                 self.book = BookViewModel.init(book: data)
                 self.delegate?.reloadBookData()

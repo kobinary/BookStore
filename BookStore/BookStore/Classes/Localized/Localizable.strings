@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  BookStore
+
+  Created by Maria Ortega on 25/04/2019.
+  Copyright © 2019 Maria Ortega. All rights reserved.
+*/
+
+
+// MARK: - Alert View
+
+"ALERT_TITLE_BUY" = "Do you want to buy it?";
+"ALERT_MESSAGE_BUY" = "Just wait to be implemented!";
+
+"ALERT_TITLE_NETWORK" = "Sorry, something went wrong!";
+"ALERT_MESSAGE_NETWORK" = "Please try again later";
+
+// MARK: - Button Action
+
+"OK_BUTTON" = "OK";

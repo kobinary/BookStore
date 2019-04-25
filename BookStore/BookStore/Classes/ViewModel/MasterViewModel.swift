@@ -11,6 +11,7 @@ import Foundation
 
 protocol MasterViewModelDelegate: class {    
     func reloadBooksCollection()
+    func showAlertView()
 }
 
 class MasterViewModel {
@@ -34,9 +35,8 @@ class MasterViewModel {
             guard let self = self else { return }
             
             switch results {
-            case .error(let error) :
-                print("Error Fetching Data: \(error)")
-                break
+            case .error(_) :
+                self.delegate?.showAlertView()
             case .results(let data):
                 self.books = self.parseListBooksIntoViewModel(array: data)
                 self.delegate?.reloadBooksCollection()

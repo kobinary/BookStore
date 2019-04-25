@@ -60,7 +60,6 @@ class MasterViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MASTER_VIEW_CELL_IDENTIFIER, for: indexPath) as! MasterViewCell
-        print(indexPath.row, indexPath.section)
         let cellViewModel = viewModel.books[indexPath.item]
         cell.update(viewModel: cellViewModel)
         return cell
@@ -90,6 +89,10 @@ extension MasterViewController: MasterViewModelDelegate {
             self.collectionView.backgroundView = nil
             self.collectionView.reloadData()
         }
+    }
+    
+    func showAlertView() {
+        presentAlert(message: ALERT_MESSAGE_NETWORK, title: ALERT_TITLE_NETWORK)
     }
 }
 

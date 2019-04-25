@@ -37,7 +37,3 @@ struct Constants {
 let LOADING_VIEW_NAME = "LoadingView"
 let NAV_DETAIL_IDENTIFIER = "DetailNavigation"
 let MASTER_VIEW_CELL_IDENTIFIER = "BookViewCell"
-
-let ALERT_TITLE = "Do you want to buy it?"
-let ALERT_MESSAGE = "Just wait to be implemented!"
-let ALERT_OK_BUTTON = "OK"

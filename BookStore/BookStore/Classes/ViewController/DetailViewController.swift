@@ -64,9 +64,7 @@ class DetailViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func buyBook(_ sender: Any) {
-        let alert = UIAlertController(title: ALERT_TITLE, message: ALERT_MESSAGE, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: ALERT_OK_BUTTON, style: .default, handler: { action in }))
-       self.present(alert, animated: true, completion: nil)
+        presentAlert(message:ALERT_MESSAGE_BUY.localized, title: ALERT_TITLE_BUY.localized)
     }
 
 }
@@ -77,6 +75,12 @@ extension DetailViewController: DetailViewModelDelegate {
         DispatchQueue.main.sync {
             self.removeSpinner()
             self.setupView()
+        }
+    }
+    
+    func showAlertView() {
+        presentAlertWithTitle(title: ALERT_TITLE_NETWORK.localized, message: ALERT_MESSAGE_NETWORK.localized, options: OK_BUTTON.localized) { (result) in
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }
